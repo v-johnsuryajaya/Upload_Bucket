@@ -175,7 +175,7 @@
                     <OutArgument x:TypeArguments="x:String">[dateString(idx)]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[CDate(dateString(idx)).AddDays(1).Day.ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[((CDate(dateString(idx)).Day)+1).ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Assign DisplayName="Iterate index" sap:VirtualizedContainerService.HintSize="434.71698113207543,80.60377358490565" sap2010:WorkflowViewState.IdRef="Assign_7">
