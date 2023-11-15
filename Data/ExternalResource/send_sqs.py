@@ -6,13 +6,21 @@ import botocore.exceptions
 def send_message(queue_url, region_name, reportId, status, inputPath, outputPath, errorDetails):
 
     sqs = boto3.client('sqs', region_name)
+
+    #Generate file id from outputpath, Get only yyyyMM/filename
+    fileIdLen = len(outputPath.split("/"))
+    fileId = outputPath.split("/")[fileIdLen-2] + "/" + outputPath.split("/")[fileIdLen-1]
+    print(fileId)
+
     message_data = {
         "reportId": reportId,
         "messageSource": "RPA",
         "status": status,
-        "outputPath": outputPath
+        "outputPath": outputPath,
+        "fileId" : fileId
         #message_data["inputPath"] = inputPath /not used rn
-    }
+        }
+
     if status != 'SUCCESS':
         message_data["errorDetails"] = errorDetails
         
@@ -20,8 +28,8 @@ def send_message(queue_url, region_name, reportId, status, inputPath, outputPath
     try :
         response = sqs.send_message(
             QueueUrl=queue_url,
-            DelaySeconds=10,
-            MessageBody = message_body
+            MessageBody = message_body,
+            MessageGroupId = fileId
         )
         return f'{response["ResponseMetadata"]["HTTPStatusCode"]}_{response["MessageId"]}'
     except botocore.exceptions.ClientError as e:
@@ -32,7 +40,7 @@ def send_message(queue_url, region_name, reportId, status, inputPath, outputPath
 #region debugging
 if __name__ == "__main__": 
     print ('start main')
-    queue_url = 'https://sqs.ap-southeast-1.amazonaws.com/674080593013/ecircon-business-partner-files-status-notification-stdq-08a32b5326b3adb9'
+    queue_url = 'https://sqs.ap-southeast-1.amazonaws.com/105676898724/ecircon-business-partner-files-status-notification-stdq-27ca1bd818ffc2d8.fifo'
     region_name = 'ap-southeast-1'
     reportId = 'PC0600' #report id from bpid
     status = 'SUCCESS'
