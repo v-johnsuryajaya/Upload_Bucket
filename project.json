@@ -1,6 +1,5 @@
 {
   "name": "Traveloka_DataAutomation_UploadBucket",
-  "projectId": "2da0d43b-c35c-4d2a-930a-60326373a0c5",
   "description": "Traveloka_DataAutomation_UploadBucket",
   "main": "Main.xaml",
   "dependencies": {
@@ -17,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.8.0.0",
-  "projectVersion": "1.0.3-alpha",
+  "projectVersion": "1.0.1-alpha.2",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -25,7 +24,6 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
-    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -90,8 +88,7 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "modernBehavior": true,
-    "saveToCloud": false
+    "modernBehavior": true
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
