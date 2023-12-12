@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1514,1008</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1514,1406</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Log_MarStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -103,7 +103,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Log_MarkStatus" sap:VirtualizedContainerService.HintSize="572,943" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Log_MarkStatus" sap:VirtualizedContainerService.HintSize="572,1341" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="C" Name="excelRow" />
       <Variable x:TypeArguments="x:String" Name="sheetName" />
@@ -134,7 +134,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If Condition="[Not String.IsNullOrEmpty(in_dateRange)]" DisplayName="If date supplied is in range" sap:VirtualizedContainerService.HintSize="510,505" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Not String.IsNullOrEmpty(in_dateRange)]" DisplayName="If date supplied is in range" sap:VirtualizedContainerService.HintSize="510,903" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="476,323" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -166,10 +166,10 @@
                 <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_status" />
               </InArgument>
               <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="CDate(dateString(0))" />
+                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="CDate(dateString(0).ToString)" />
               </InArgument>
               <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">
-                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="CDate(dateString(0))" />
+                <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="CDate(dateString(1).ToString)" />
               </InArgument>
               <InArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="in_listStartEndRange" />
             </ui:InvokeWorkflowFile.Arguments>
