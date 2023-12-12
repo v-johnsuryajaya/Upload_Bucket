@@ -19,7 +19,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>992.6037735849056,2840.150943396226</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1410.1132075471696,1661.8867924528302</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>WriteLogReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -57,7 +57,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="104">
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -109,9 +109,10 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Write_Log_Report" sap:VirtualizedContainerService.HintSize="669.2830188679245,2774.9433962264147" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Write_Log_Report" sap:VirtualizedContainerService.HintSize="638.4905660377358,1596.6792452830189" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="sheetName" />
       <Variable x:TypeArguments="x:String" Name="rowDate" />
@@ -127,33 +128,27 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="&quot;RPA010 [&quot;+ datetime.Now.ToString + &quot;] Last Login Status: &quot; +LastLoginStatus" DisplayName="Log Message Log_MarStatus" sap:VirtualizedContainerService.HintSize="607.6981132075472,128.60377358490564" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;{0} [{1}] {2}&quot;, in_PID, Now, &quot;STEP : Log_MarkStatus&quot;)]">
+    <ui:LogMessage sap2010:Annotation.AnnotationText="&quot;RPA010 [&quot;+ datetime.Now.ToString + &quot;] Last Login Status: &quot; +LastLoginStatus" DisplayName="Log Message Log_MarStatus" sap:VirtualizedContainerService.HintSize="576.9056603773585,128.60377358490564" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;{0} [{1}] {2}&quot;, in_PID, Now, &quot;STEP : Log_MarkStatus&quot;)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <If Condition="[in_dateStartPeriod = DateTime.MinValue]" sap:VirtualizedContainerService.HintSize="607.6981132075472,2496.9056603773583" sap2010:WorkflowViewState.IdRef="If_6">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="475.47169811320754,961.8113207547169" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[in_dateStartPeriod &lt;= in_dateEndPeriod]" DisplayName="While" sap:VirtualizedContainerService.HintSize="576.9056603773585,1318.6415094339623" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+      <ui:InterruptibleWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540.6792452830189,1155.6226415094338" sap2010:WorkflowViewState.IdRef="Sequence_23">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="Sheet name &quot;MMMM&quot; long month name" DisplayName="Assign Sheet Name" sap:VirtualizedContainerService.HintSize="434.71698113207543,111.39622641509433" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign sap2010:Annotation.AnnotationText="Sheet name &quot;MMMM&quot; long month name" DisplayName="Assign Sheet Name" sap:VirtualizedContainerService.HintSize="479.0943396226415,90.56603773584905" sap2010:WorkflowViewState.IdRef="Assign_11">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[sheetName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[in_dateEndPeriod.ToString("MMMM")]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_dateStartPeriod.ToString("MMMM")]</InArgument>
             </Assign.Value>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -161,12 +156,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <Assign sap2010:Annotation.AnnotationText="Currently upload located in Column C&#xA;Row = Date + 1&#xA;Ie : Date 5 means marking on row 6&#xA;Convert date 01 -&gt; 1" DisplayName="Assign Row Date" sap:VirtualizedContainerService.HintSize="434.71698113207543,146.71698113207546" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign sap2010:Annotation.AnnotationText="Currently upload located in Column C&#xA;Row = Date + 1&#xA;Ie : Date 5 means marking on row 6&#xA;Convert date 01 -&gt; 1" DisplayName="Assign Row Date" sap:VirtualizedContainerService.HintSize="479.0943396226415,125.88679245283018" sap2010:WorkflowViewState.IdRef="Assign_12">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[rowDate]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[(CInt(in_dateEndPeriod.ToString("dd"))+1).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[(CInt(in_dateStartPeriod.ToString("dd"))+1).ToString]</InArgument>
             </Assign.Value>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -174,106 +169,39 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:WriteCell Cell="[String.Format(&quot;B{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="434.71698113207543,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_7" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
-          <If Condition="[in_strStatus.Contains(&quot;Failed&quot;) Or in_strStatus.Contains(&quot;Not Found&quot;)]" DisplayName="If - Status failed or not found, write the same error for upload bucket" sap:VirtualizedContainerService.HintSize="434.71698113207543,382.18867924528297" sap2010:WorkflowViewState.IdRef="If_7">
+          <ui:WriteCell Cell="[String.Format(&quot;C{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="479.0943396226415,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_11" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
+          <If Condition="[in_strStatus.Contains(&quot;Failed&quot;) Or in_strStatus.Contains(&quot;Not Found&quot;)]" DisplayName="If - Status failed or not found, write the same error for upload bucket" sap:VirtualizedContainerService.HintSize="479.0943396226415,494.4905660377358" sap2010:WorkflowViewState.IdRef="If_9">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="374.9433962264151,201.96226415094338" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,225.50943396226413" sap2010:WorkflowViewState.IdRef="Sequence_21">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:WriteCell Cell="[String.Format(&quot;C{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="334.18867924528297,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_8" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
+                <ui:WriteCell Cell="[String.Format(&quot;C{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="338.71698113207543,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_12" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,79.69811320754717" sap2010:WorkflowViewState.IdRef="Sequence_22">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
             </If.Else>
           </If>
+          <Assign sap:VirtualizedContainerService.HintSize="479.0943396226415,59.77358490566037" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:DateTime">[in_dateStartPeriod]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:DateTime">[in_dateStartPeriod.AddDays(1)]</InArgument>
+            </Assign.Value>
+          </Assign>
         </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="573.2830188679245,1354.8679245283017" sap2010:WorkflowViewState.IdRef="Sequence_15">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[in_dateStartPeriod &lt;= in_dateEndPeriod]" DisplayName="While" sap:VirtualizedContainerService.HintSize="532.5283018867924,1268.830188679245" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
-            <ui:InterruptibleWhile.Body>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496.3018867924528,1105.811320754717" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign sap2010:Annotation.AnnotationText="Sheet name &quot;MMMM&quot; long month name" DisplayName="Assign Sheet Name" sap:VirtualizedContainerService.HintSize="434.71698113207543,111.39622641509433" sap2010:WorkflowViewState.IdRef="Assign_9">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[sheetName]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[in_dateStartPeriod.ToString("MMMM")]</InArgument>
-                  </Assign.Value>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Assign>
-                <Assign sap2010:Annotation.AnnotationText="Currently upload located in Column C&#xA;Row = Date + 1&#xA;Ie : Date 5 means marking on row 6&#xA;Convert date 01 -&gt; 1" DisplayName="Assign Row Date" sap:VirtualizedContainerService.HintSize="434.71698113207543,146.71698113207546" sap2010:WorkflowViewState.IdRef="Assign_7">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[rowDate]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[(CInt(in_dateStartPeriod.ToString("dd"))+1).ToString]</InArgument>
-                  </Assign.Value>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Assign>
-                <ui:WriteCell Cell="[String.Format(&quot;B{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="434.71698113207543,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_9" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
-                <If Condition="[in_strStatus.Contains(&quot;Failed&quot;) Or in_strStatus.Contains(&quot;Not Found&quot;)]" DisplayName="If - Status failed or not found, write the same error for upload bucket" sap:VirtualizedContainerService.HintSize="434.71698113207543,382.18867924528297" sap2010:WorkflowViewState.IdRef="If_8">
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="374.9433962264151,201.96226415094338" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:WriteCell Cell="[String.Format(&quot;C{0}&quot;, rowDate)]" DisplayName="Write Cell Workbook Current Status on Current Date" sap:VirtualizedContainerService.HintSize="334.18867924528297,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteCell_10" SheetName="[sheetName]" Text="[in_strStatus]" WorkbookPath="[in_strPathLog]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <Assign sap:VirtualizedContainerService.HintSize="434.71698113207543,80.60377358490565" sap2010:WorkflowViewState.IdRef="Assign_8">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="s:DateTime">[in_dateStartPeriod]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="s:DateTime">[in_dateStartPeriod.AddDays(1)]</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </Sequence>
-            </ui:InterruptibleWhile.Body>
-          </ui:InterruptibleWhile>
-        </Sequence>
-      </If.Else>
-    </If>
+      </ui:InterruptibleWhile.Body>
+    </ui:InterruptibleWhile>
   </Sequence>
 </Activity>
