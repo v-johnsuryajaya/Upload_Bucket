@@ -23,10 +23,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.1132075471696,2032.301886792453</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206.4,2507.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_Sqs_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="56">
+    <scg:List x:TypeArguments="x:String" Capacity="29">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -59,7 +59,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -111,27 +111,31 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_Sqs" sap:VirtualizedContainerService.HintSize="636.6792452830189,1967.0943396226414" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_Sqs" sap:VirtualizedContainerService.HintSize="636.8,2442.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="pythonPath" />
+      <Variable x:TypeArguments="x:String" Name="pythonDllPath" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="575.0943396226414,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[String.Format(&quot;{0} [{1}] {2}&quot;, in_str_PID, Now, &quot;STEP : SQS_SendMessage&quot;)]" />
-    <If sap2010:Annotation.AnnotationText="Adjust the output path to include the full path name of the bucket (s3://{bucketname}/{filepath}" Condition="[in_str_outputPath IsNot Nothing]" sap:VirtualizedContainerService.HintSize="575.0943396226414,608.6037735849056" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="574.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[String.Format(&quot;{0} [{1}] {2}&quot;, in_str_PID, Now, &quot;STEP : SQS_SendMessage&quot;)]" />
+    <If sap2010:Annotation.AnnotationText="Adjust the output path to include the full path name of the bucket (s3://{bucketname}/{filepath}" Condition="[in_str_outputPath IsNot Nothing]" sap:VirtualizedContainerService.HintSize="574.4,632" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,299.77358490566036" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="400,304.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="338.71698113207543,60.679245283018865" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign sap:VirtualizedContainerService.HintSize="337.6,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[in_str_outputPath]</OutArgument>
             </Assign.To>
@@ -139,11 +143,11 @@
               <InArgument x:TypeArguments="x:String">[String.Format("s3://{0}/{1}", in_str_bucketName, in_str_outputPath)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338.71698113207543,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;{0} [{1}] {2} : {3}&quot;, in_str_PID, Now,&quot;Full output path&quot; ,in_str_outputPath)]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;{0} [{1}] {2} : {3}&quot;, in_str_PID, Now,&quot;Full output path&quot; ,in_str_outputPath)]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,100.52830188679245" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence sap:VirtualizedContainerService.HintSize="400,104.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,13 +156,29 @@
         </Sequence>
       </If.Else>
     </If>
-    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="575.0943396226414,1079.5471698113206" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="C:\Python39" TargetPlatform="x64" Version="Python 3.9">
+    <ui:GetRobotAsset AssetName="[&quot;RPA_Python_Path&quot;]" CacheStrategy="None" DisplayName="Get Asset python path" sap:VirtualizedContainerService.HintSize="574.4,172" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotAsset.TimeoutMS>
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[pythonPath]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ui:GetRobotAsset AssetName="[&quot;RPA_Python_Dll_Path&quot;]" CacheStrategy="None" DisplayName="Get Asset library path" sap:VirtualizedContainerService.HintSize="574.4,172" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+      <ui:GetRobotAsset.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotAsset.TimeoutMS>
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[pythonDllPath]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="574.4,1101.6" sap2010:WorkflowViewState.IdRef="PythonScope_1" LibraryPath="[pythonDllPath]" Path="[pythonPath]" TargetPlatform="x64">
       <p:PythonScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540.6792452830189,1042.4150943396226" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540.8,1064.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="p:PythonObject" Name="pythonFile" />
               <Variable x:TypeArguments="p:PythonObject" Name="outputPython" />
@@ -169,13 +189,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="479.0943396226415,59.77358490566037" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[pythonFile]" ScriptFile="[Environment.CurrentDirectory +&quot;\Data\ExternalResource\send_sqs.py&quot;]" />
-            <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="479.0943396226415,78.79245283018868" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[pythonFile]" Name="send_message" Parameters="[{in_str_queueName, in_str_region, in_str_BPID, in_str_status, in_str_inputPath, in_str_outputPath, in_str_errorDetails}]" Result="[outputPython]" />
-            <p:GetObject x:TypeArguments="x:String" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="479.0943396226415,78.79245283018868" sap2010:WorkflowViewState.IdRef="GetObject`1_5" PythonObject="[outputPython]" Result="[res]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479.0943396226415,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[String.Format(&quot;{0} [{1}] {2} : {3}&quot;, in_str_PID, Now,&quot;Py SQS result&quot; ,res)]" />
-            <If Condition="[Not res.Contains(&quot;200&quot;)]" sap:VirtualizedContainerService.HintSize="479.0943396226415,466.4150943396226" sap2010:WorkflowViewState.IdRef="If_2">
+            <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="478.4,60" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[pythonFile]" ScriptFile="[Environment.CurrentDirectory +&quot;\Data\ExternalResource\send_sqs.py&quot;]" />
+            <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="478.4,80.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[pythonFile]" Name="send_message" Parameters="[{in_str_queueName, in_str_region, in_str_BPID, in_str_status, in_str_inputPath, in_str_outputPath, in_str_errorDetails}]" Result="[outputPython]" />
+            <p:GetObject x:TypeArguments="x:String" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="478.4,80.8" sap2010:WorkflowViewState.IdRef="GetObject`1_5" PythonObject="[outputPython]" Result="[res]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[String.Format(&quot;{0} [{1}] {2} : {3}&quot;, in_str_PID, Now,&quot;Py SQS result&quot; ,res)]" />
+            <If Condition="[Not res.Contains(&quot;200&quot;)]" sap:VirtualizedContainerService.HintSize="478.4,478.4" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,197.43396226415092" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence sap:VirtualizedContainerService.HintSize="400.8,200" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

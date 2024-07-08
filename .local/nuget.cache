@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mTBrXNuvK2wx/5VvhwM2tdrr3JE/gG5O6OgDm7qfcxGWb9HUD9KgtvshT7qyzcgvjDGTgvZru2Rx3F0qHXwKmQ==",
+  "dgSpecHash": "LMxBt0Rc/YC3rKhiga+2GHlj0JITVOsV3uek69DqpHyuYt3NH1NFbLDj0Fm/XbYVDacgupWMTXQb7PzTPbqYkw==",
   "success": true,
   "projectFilePath": "C:\\Kalyana\\Upload_Bucket\\.local\\",
   "expectedPackageFiles": [
@@ -294,7 +294,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.ocr.activities\\3.11.0\\uipath.ocr.activities.3.11.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.ocr.contracts\\2.13.0\\uipath.ocr.contracts.2.13.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.platform\\23.1.0\\uipath.platform.23.1.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\uipath.python.activities\\1.4.1\\uipath.python.activities.1.4.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\uipath.python.activities\\1.7.1\\uipath.python.activities.1.7.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities\\22.10.4\\uipath.system.activities.22.10.4.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\uipath.telemetry.client.1.5.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\uipath.testing.activities\\22.10.3\\uipath.testing.activities.22.10.3.nupkg.sha512",
